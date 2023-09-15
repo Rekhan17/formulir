@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Tim Bola Voli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group td {
+            padding: 10px 0;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            float: right;
+        }
+    </style>
+    <script>
+        function checkFileSize(input) {
+            var maxSize = 2 * 1024 * 1024; // 2 MB
+            if (input.files[0].size > maxSize) {
+                alert("Ukuran file terlalu besar. Maksimum 2 MB.");
+                input.value = ""; // Reset nilai input
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>FORMULIR PENDAFTARAN TIM BOLA VOLI ANTAR RT/RW</h2>
+        <form action="" method="post">
+            <table>
+                <tr >
+                        <td>NAMA TIM</td>
+                        <td>:</td>
+                        <td><input type="text" placeholder="Nama Tim" id="nama_tim" name="nama_tim" required pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi yang diperbolehkan"></td>
+                    </tr>
+                <tr>
+                    <td>KATEGORI</td>
+                    <td>:</td>
+                    <td>
+                        <input type="radio" name="kategori" value="putra" checked> Putra
+                        <input type="radio" name="kategori" value="putri"> Putri
+                    </td>
+                </tr>
+                <tr>
+                    <td>JUMLAH ANGGOTA</td>
+                    <td>:</td>
+                    <td><input type="number" placeholder="Jumlah" id="jumlah_anggota" name="jumlah_anggota" min="6" max="12" required></td>
+                </tr>
+                <tr>
+                    <td>TANGGAL PENDAFTARAN</td>
+                    <td>:</td>
+                    <td><input type="date" id="tanggal_pendaftaran" name="tanggal_pendaftaran" required></td>
+                </tr>
+                <tr>
+                    <td>ASAL RT/RW</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Asal RT/RW" id="asal" name="asal" required></td>
+                </tr>
+                <tr>
+                    <td>NAMA KETUA TIM</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Nama Ketua" id="nama_ketua" name="nama_ketua" required pattern="[A-Za-z\s]+" title="Hanya huruf dan spasi yang diperbolehkan"></td>
+                </tr>
+                <tr>
+                    <td>NOMOR HP KETUA TIM</td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Nomor Telepon" id="no_hp_ketua" name="no_hp_ketua" pattern="{0-9}+" maxlength="11" required title="Nomor telepon harus terdiri dari 11 angka." required></td>
+                </tr>
+                <tr>
+                    <td>FOTO KTP KETUA TIM</td>
+                    <td>:</td>
+                    <td><input type="file" placeholder="" id="foto_ktp" name="foto_ktp" accept="image/*" onchange="checkFileSize(this)"  required></td>
+                </tr>
+               
+    
+                <!-- ...Tambahkan elemen form yang lain di sini... -->
+                <tr class="form-group">
+                    <td colspan="3">
+                        <button type="submit">Kirim</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
